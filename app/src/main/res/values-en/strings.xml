@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Examen Bimestral</string>
+    <string name="str_btn_crear">Create</string>
+    <string name="str_btn_listar">List</string>
+</resources>

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Examen Bimestral</string>
+    <string name="str_btn_crear">Crear</string>
+    <string name="str_btn_listar">Listar</string>
 </resources>
