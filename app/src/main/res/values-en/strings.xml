@@ -1,5 +1,12 @@
 <resources>
-    <string name="app_name">Examen Bimestral</string>
-    <string name="str_btn_crear">Create</string>
-    <string name="str_btn_listar">List</string>
+    <string name="app_name">Bimonthly Exam</string>
+    <string name="str_crear">Create</string>
+    <string name="str_listar">List</string>
+    <string name="str_guardar">Save</string>
+    <string name="str_nombre">Name</string>
+    <string name="str_descripcion">Description</string>
+    <string name="str_nacionalidad">Nationality</string>
+    <string name="str_numero_personas">Number of People</string>
+    <string name="str_picante">Spicy</string>
+    <string name="str_cancelar">Cancel</string>
 </resources>
