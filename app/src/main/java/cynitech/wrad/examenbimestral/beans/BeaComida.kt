@@ -9,7 +9,7 @@ class BeaComida(val id: Int,
                 val nacionalidad: String,
                 val numeroPersonas: Int,
                 val picante: Boolean,
-                val ingredientes: List<BeaIngrediente>
+                val ingredientes: List<BeaIngrediente>?
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readInt(),

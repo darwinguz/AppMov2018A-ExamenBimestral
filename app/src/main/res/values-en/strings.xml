@@ -9,4 +9,5 @@
     <string name="str_numero_personas">Number of People</string>
     <string name="str_picante">Spicy</string>
     <string name="str_cancelar">Cancel</string>
+    <string name="str_ingredientes">Ingredients</string>
 </resources>
