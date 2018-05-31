@@ -1,15 +1,15 @@
-package cynitech.wrad.examenbimestral.beans
+package cynitech.wrad.examenbimestral.modelos
 
 import android.os.Parcel
 import android.os.Parcelable
 
-class BeaComida(val id: Int,
+class ModComida(val id: Int,
                 val nombrePlato: String,
                 val descripcionPlato: String,
                 val nacionalidad: String,
                 val numeroPersonas: Int,
                 val picante: Boolean,
-                val ingredientes: List<BeaIngrediente>?
+                val ingredientes: List<ModIngrediente>?
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readInt(),
@@ -18,7 +18,7 @@ class BeaComida(val id: Int,
             parcel.readString(),
             parcel.readInt(),
             parcel.readByte() != 0.toByte(),
-            parcel.createTypedArrayList(BeaIngrediente)) {
+            parcel.createTypedArrayList(ModIngrediente)) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -35,12 +35,12 @@ class BeaComida(val id: Int,
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<BeaComida> {
-        override fun createFromParcel(parcel: Parcel): BeaComida {
-            return BeaComida(parcel)
+    companion object CREATOR : Parcelable.Creator<ModComida> {
+        override fun createFromParcel(parcel: Parcel): ModComida {
+            return ModComida(parcel)
         }
 
-        override fun newArray(size: Int): Array<BeaComida?> {
+        override fun newArray(size: Int): Array<ModComida?> {
             return arrayOfNulls(size)
         }
     }

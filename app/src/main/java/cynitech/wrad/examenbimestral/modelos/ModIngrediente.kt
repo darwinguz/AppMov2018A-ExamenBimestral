@@ -1,9 +1,9 @@
-package cynitech.wrad.examenbimestral.beans
+package cynitech.wrad.examenbimestral.modelos
 
 import android.os.Parcel
 import android.os.Parcelable
 
-class BeaIngrediente(val nombreIngrediente: String,
+class ModIngrediente(val nombreIngrediente: String,
                      val cantidad: Int,
                      val descripcionPreparacion: String,
                      val opcional: Boolean,
@@ -35,12 +35,12 @@ class BeaIngrediente(val nombreIngrediente: String,
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<BeaIngrediente> {
-        override fun createFromParcel(parcel: Parcel): BeaIngrediente {
-            return BeaIngrediente(parcel)
+    companion object CREATOR : Parcelable.Creator<ModIngrediente> {
+        override fun createFromParcel(parcel: Parcel): ModIngrediente {
+            return ModIngrediente(parcel)
         }
 
-        override fun newArray(size: Int): Array<BeaIngrediente?> {
+        override fun newArray(size: Int): Array<ModIngrediente?> {
             return arrayOfNulls(size)
         }
     }

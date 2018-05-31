@@ -11,11 +11,11 @@ import android.view.View
 import android.view.ViewGroup
 import cynitech.wrad.examenbimestral.MainActivity
 import cynitech.wrad.examenbimestral.R
-import cynitech.wrad.examenbimestral.beans.BeaComida
+import cynitech.wrad.examenbimestral.modelos.ModComida
 import kotlinx.android.synthetic.main.lista_fila_comida.view.*
 import java.util.*
 
-class AdaComida(private val comidas: ArrayList<BeaComida>) :
+class AdaComida(private val comidas: ArrayList<ModComida>) :
         RecyclerView.Adapter<AdaComida.ViewHolder>() {
 
     // Provide a reference to the views for each data item
@@ -54,7 +54,7 @@ class AdaComida(private val comidas: ArrayList<BeaComida>) :
         })
     }
 
-    fun irAActividadIngredientesComida(context: Context, comidaSelected: BeaComida) {
+    fun irAActividadIngredientesComida(context: Context, comidaSelected: ModComida) {
         val intent = Intent(context, MainActivity::class.java)
         intent.putExtra("comida-intent", comidaSelected)
         Log.e("VERBOSE", "COMIDA ENVIADA: $comidaSelected ")
