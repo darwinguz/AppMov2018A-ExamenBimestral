@@ -3,7 +3,7 @@ package cynitech.wrad.examenbimestral.modelos
 import android.os.Parcel
 import android.os.Parcelable
 
-class ModComida(val id: Int,
+class ModComida(val id: Int?,
                 val nombrePlato: String,
                 val descripcionPlato: String,
                 val nacionalidad: String,
@@ -22,7 +22,9 @@ class ModComida(val id: Int,
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeInt(id)
+        if (id != null) {
+            parcel.writeInt(id)
+        }
         parcel.writeString(nombrePlato)
         parcel.writeString(descripcionPlato)
         parcel.writeString(nacionalidad)
@@ -45,4 +47,7 @@ class ModComida(val id: Int,
         }
     }
 
+    override fun toString(): String {
+        return "Comida: Nombre=$nombrePlato Descripcion=$descripcionPlato Nacionalidad=$nacionalidad NumeroDePersonas=$numeroPersonas Picante=$picante"
+    }
 }

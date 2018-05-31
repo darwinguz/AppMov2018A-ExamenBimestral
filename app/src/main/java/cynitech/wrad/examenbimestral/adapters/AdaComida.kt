@@ -9,7 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import cynitech.wrad.examenbimestral.MainActivity
+import cynitech.wrad.examenbimestral.IngredienteActivity
 import cynitech.wrad.examenbimestral.R
 import cynitech.wrad.examenbimestral.modelos.ModComida
 import kotlinx.android.synthetic.main.lista_fila_comida.view.*
@@ -55,7 +55,7 @@ class AdaComida(private val comidas: ArrayList<ModComida>) :
     }
 
     fun irAActividadIngredientesComida(context: Context, comidaSelected: ModComida) {
-        val intent = Intent(context, MainActivity::class.java)
+        val intent = Intent(context, IngredienteActivity::class.java)
         intent.putExtra("comida-intent", comidaSelected)
         Log.e("VERBOSE", "COMIDA ENVIADA: $comidaSelected ")
 

@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".CrearComidaActivity" />
-        <activity android:name=".ListarComidaActivity"></activity>
+        <activity android:name=".ListarComidaActivity" />
+        <activity android:name=".IngredienteActivity"></activity>
     </application>
 
 </manifest>

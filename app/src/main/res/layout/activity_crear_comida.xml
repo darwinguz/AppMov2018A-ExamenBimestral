@@ -17,7 +17,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/str_nombre"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="25dp"
         android:text="@string/str_descripcion"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/lbl_nombre_comida"
         app:layout_constraintHorizontal_bias="0.741"
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/str_nacionalidad"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/lbl_descripcion_comida"
         app:layout_constraintHorizontal_bias="1.0"
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:text="@string/str_numero_personas"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/lbl_nacionalidad_comida"
         app:layout_constraintTop_toBottomOf="@+id/lbl_nacionalidad_comida" />
@@ -75,7 +75,7 @@
         android:layout_marginStart="104dp"
         android:layout_marginTop="24dp"
         android:text="@string/str_picante"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/lbl_numero_personas_comida"
         app:layout_constraintStart_toStartOf="@+id/lbl_numero_personas_comida"
@@ -89,12 +89,12 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="64dp"
         android:text="@string/str_guardar"
-        app:layout_constraintEnd_toEndOf="@+id/editText2"
-        app:layout_constraintHorizontal_bias="0.446"
-        app:layout_constraintStart_toStartOf="@+id/editText2"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintEnd_toEndOf="@+id/chk_picante_comida"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/chk_picante_comida"
+        app:layout_constraintTop_toBottomOf="@+id/chk_picante_comida" />
 
     <Button
         android:id="@+id/btn_cancelar_comida"
@@ -111,44 +111,40 @@
 
     <EditText
         android:id="@+id/txt_nombre_comida"
-        android:layout_width="160dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/str_nombre"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/lbl_nombre_comida"
         app:layout_constraintStart_toEndOf="@+id/lbl_nombre_comida"
         app:layout_constraintTop_toTopOf="@+id/lbl_nombre_comida" />
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="160dp"
+
+    <CheckBox
+        android:id="@+id/chk_picante_comida"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/str_picante"
-        android:textSize="14sp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Si"
         app:layout_constraintBottom_toBottomOf="@+id/lbl_picante_comida"
         app:layout_constraintStart_toEndOf="@+id/lbl_picante_comida"
         app:layout_constraintTop_toTopOf="@+id/lbl_picante_comida"
-        app:layout_constraintVertical_bias="0.652" />
+        app:layout_constraintVertical_bias="0.0" />
+
 
     <EditText
-        android:id="@+id/editText3"
-        android:layout_width="160dp"
+        android:id="@+id/txt_nacionalidad_comida"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/str_nacionalidad"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/lbl_nacionalidad_comida"
         app:layout_constraintStart_toEndOf="@+id/lbl_nacionalidad_comida"
@@ -156,15 +152,14 @@
         app:layout_constraintVertical_bias="0.652" />
 
     <EditText
-        android:id="@+id/editText4"
-        android:layout_width="160dp"
+        android:id="@+id/txt_numero_personas_comida"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/str_numero_personas"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/lbl_numero_personas_comida"
         app:layout_constraintStart_toEndOf="@+id/lbl_numero_personas_comida"
@@ -172,19 +167,19 @@
         app:layout_constraintVertical_bias="0.652" />
 
     <EditText
-        android:id="@+id/editText5"
-        android:layout_width="160dp"
+        android:id="@+id/txt_descripcion_comida"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/str_descripcion"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/lbl_descripcion_comida"
         app:layout_constraintStart_toEndOf="@+id/lbl_descripcion_comida"
         app:layout_constraintTop_toTopOf="@+id/lbl_descripcion_comida"
         app:layout_constraintVertical_bias="0.695" />
+
 
 </android.support.constraint.ConstraintLayout>

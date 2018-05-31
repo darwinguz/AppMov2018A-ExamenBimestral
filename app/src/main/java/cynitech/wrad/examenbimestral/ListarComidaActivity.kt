@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import cynitech.wrad.examenbimestral.adapters.AdaComida
-import cynitech.wrad.examenbimestral.persistencia.Factory
+import cynitech.wrad.examenbimestral.persistencia.servicios.SerComida
 
 class ListarComidaActivity : AppCompatActivity() {
 
@@ -18,7 +18,9 @@ class ListarComidaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_listar_comida)
 
         viewManager = LinearLayoutManager(this)
-        viewAdapter = AdaComida(Factory.comidas)
+        val dbHandler = SerComida(this)
+//        viewAdapter = AdaComida(Factory.comidas)
+        viewAdapter = AdaComida(dbHandler.selectAll())
 
         recyclerView = findViewById<RecyclerView>(R.id.recycler_view_comida).apply {
             // use this setting to improve performance if you know that changes
