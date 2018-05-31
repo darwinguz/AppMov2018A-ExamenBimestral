@@ -3,7 +3,8 @@ package cynitech.wrad.examenbimestral.modelos
 import android.os.Parcel
 import android.os.Parcelable
 
-class ModIngrediente(val nombreIngrediente: String,
+class ModIngrediente(val id: Int?,
+                     val nombreIngrediente: String,
                      val cantidad: Int,
                      val descripcionPreparacion: String,
                      val opcional: Boolean,
@@ -12,6 +13,7 @@ class ModIngrediente(val nombreIngrediente: String,
                      val comidaId: Int
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
+            parcel.readValue(Int::class.java.classLoader) as? Int,
             parcel.readString(),
             parcel.readInt(),
             parcel.readString(),
@@ -22,6 +24,7 @@ class ModIngrediente(val nombreIngrediente: String,
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeValue(id)
         parcel.writeString(nombreIngrediente)
         parcel.writeInt(cantidad)
         parcel.writeString(descripcionPreparacion)
@@ -44,6 +47,7 @@ class ModIngrediente(val nombreIngrediente: String,
             return arrayOfNulls(size)
         }
     }
+
 
 }
 

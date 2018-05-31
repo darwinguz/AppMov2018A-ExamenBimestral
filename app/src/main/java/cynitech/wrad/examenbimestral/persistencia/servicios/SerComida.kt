@@ -16,7 +16,7 @@ class SerComida(context: Context) {
         cv.put(Database.COL_NOMBRE_COMIDA, comida.nombrePlato)
         cv.put(Database.COL_DESCRIPCION_COMIDA, comida.descripcionPlato)
         cv.put(Database.COL_NACIONALIDAD_COMIDA, comida.nacionalidad)
-        cv.put(Database.COL_NUMERO_PERSONAS_COMIDA, comida.numeroPersonas.toInt())
+        cv.put(Database.COL_NUMERO_PERSONAS_COMIDA, comida.numeroPersonas)
         cv.put(Database.COL_PICANTE_COMIDA, if (comida.picante) 1 else 0)
         val idResultado = dbWriteable.insert(Database.USR_TABLE_NAME_COMIDA, null, cv)
         Log.i("database", "ERROR=-1 : EXITO!=1; ID_RESULTADO=$idResultado")
@@ -29,7 +29,7 @@ class SerComida(context: Context) {
         cv.put(Database.COL_NOMBRE_COMIDA, comida.nombrePlato)
         cv.put(Database.COL_DESCRIPCION_COMIDA, comida.descripcionPlato)
         cv.put(Database.COL_NACIONALIDAD_COMIDA, comida.nacionalidad)
-        cv.put(Database.COL_NUMERO_PERSONAS_COMIDA, comida.numeroPersonas.toInt())
+        cv.put(Database.COL_NUMERO_PERSONAS_COMIDA, comida.numeroPersonas)
         cv.put(Database.COL_PICANTE_COMIDA, if (comida.picante) 1 else 0)
         val count = dbWriteable!!.update(Database.USR_TABLE_NAME_COMIDA, cv, "${Database.COL_ID_COMIDA}=?", arrayOf(comida.id.toString()))
         return count
@@ -43,12 +43,12 @@ class SerComida(context: Context) {
 
         if (resultado.moveToFirst()) {
             do {
-                val id = resultado.getString(0).toInt()
+                val id = resultado.getInt(0)
                 val nombre = resultado.getString(1)
                 val descripcion = resultado.getString(2)
                 val nacionalidad = resultado.getString(3)
-                val numeroPersonas = resultado.getString(4).toInt()
-                val picante = resultado.getString(5).toInt()
+                val numeroPersonas = resultado.getInt(4)
+                val picante = resultado.getInt(5)
                 val comida = ModComida(id, nombre, descripcion, nacionalidad, numeroPersonas, picante == 1, null)
                 datos.add(comida)
                 Log.i("database", "Comida: ID=$id Nombre=$nombre Descripcion=$descripcion Nacionalidad=$nacionalidad NumeroDePersonas=$numeroPersonas Picante=$picante")
@@ -73,12 +73,12 @@ class SerComida(context: Context) {
         var comida: ModComida? = null
 
         if (resultado.moveToFirst()) {
-            val id = resultado.getString(0).toInt()
+            val id = resultado.getInt(0)
             val nombre = resultado.getString(1)
             val descripcion = resultado.getString(2)
             val nacionalidad = resultado.getString(3)
-            val numeroPersonas = resultado.getString(4).toInt()
-            val picante = resultado.getString(5).toInt()
+            val numeroPersonas = resultado.getInt(4)
+            val picante = resultado.getInt(5)
             comida = ModComida(id, nombre, descripcion, nacionalidad, numeroPersonas, picante == 1, null)
             Log.i("database", "Comida: ID=$id Nombre=$nombre Descripcion=$descripcion Nacionalidad=$nacionalidad NumeroDePersonas=$numeroPersonas Picante=$picante")
         }
