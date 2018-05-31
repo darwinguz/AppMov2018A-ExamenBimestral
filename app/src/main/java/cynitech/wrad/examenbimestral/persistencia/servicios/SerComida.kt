@@ -2,34 +2,17 @@ package cynitech.wrad.examenbimestral.persistencia.servicios
 
 import android.content.ContentValues
 import android.content.Context
-import android.database.sqlite.SQLiteDatabase
-import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import cynitech.wrad.examenbimestral.modelos.ModComida
 import cynitech.wrad.examenbimestral.persistencia.Database
 import java.util.*
 
-class SerComida(context: Context) : SQLiteOpenHelper(context, Database.DB_NAME, null, Database.DB_VERSION) {
-
-    override fun onCreate(db: SQLiteDatabase?) {
-        val createTableSQL = "CREATE TABLE ${Database.USR_TABLE_NAME_COMIDA} " +
-                "(${Database.COL_ID_COMIDA} INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "${Database.COL_NOMBRE_COMIDA} VARCHAR(50),  " +
-                "${Database.COL_DESCRIPCION_COMIDA} VARCHAR(100), " +
-                "${Database.COL_NACIONALIDAD_COMIDA} VARCHAR(100), " +
-                "${Database.COL_NUMERO_PERSONAS_COMIDA} INTEGER, " +
-                "${Database.COL_PICANTE_COMIDA} INTEGER)"
-
-        db?.execSQL(createTableSQL)
-    }
-
-    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        db!!.execSQL("DROP TABLE IF EXISTS " + Database.DB_NAME)
-    }
+class SerComida(context: Context) {
+    private val dbHelper: Database = Database(context)
 
     fun insert(comida: ModComida) {
-        val dbWriteable = writableDatabase
         var cv = ContentValues()
+        val dbWriteable = dbHelper.writableDatabase
         cv.put(Database.COL_NOMBRE_COMIDA, comida.nombrePlato)
         cv.put(Database.COL_DESCRIPCION_COMIDA, comida.descripcionPlato)
         cv.put(Database.COL_NACIONALIDAD_COMIDA, comida.nacionalidad)
@@ -41,8 +24,8 @@ class SerComida(context: Context) : SQLiteOpenHelper(context, Database.DB_NAME, 
     }
 
     fun update(comida: ModComida): Int {
-        val dbWriteable = writableDatabase
         var cv = ContentValues()
+        val dbWriteable = dbHelper.writableDatabase
         cv.put(Database.COL_NOMBRE_COMIDA, comida.nombrePlato)
         cv.put(Database.COL_DESCRIPCION_COMIDA, comida.descripcionPlato)
         cv.put(Database.COL_NACIONALIDAD_COMIDA, comida.nacionalidad)
@@ -53,8 +36,8 @@ class SerComida(context: Context) : SQLiteOpenHelper(context, Database.DB_NAME, 
     }
 
     fun selectAll(): ArrayList<ModComida> {
-        val dbReadable = readableDatabase
         val query = "SELECT * FROM ${Database.USR_TABLE_NAME_COMIDA}"
+        val dbReadable = dbHelper.readableDatabase
         val resultado = dbReadable.rawQuery(query, null)
         var datos: ArrayList<ModComida> = ArrayList()
 
@@ -71,20 +54,21 @@ class SerComida(context: Context) : SQLiteOpenHelper(context, Database.DB_NAME, 
                 Log.i("database", "Comida: ID=$id Nombre=$nombre Descripcion=$descripcion Nacionalidad=$nacionalidad NumeroDePersonas=$numeroPersonas Picante=$picante")
             } while (resultado.moveToNext())
         }
+
         resultado.close()
         dbReadable.close()
         return datos
     }
 
     fun delete(id: Int): Int {
-        val dbWriteable = writableDatabase
+        val dbWriteable = dbHelper.writableDatabase
         val count = dbWriteable!!.delete(Database.USR_TABLE_NAME_COMIDA, "${Database.COL_ID_COMIDA}=?", arrayOf(id.toString()))
         return count
     }
 
     fun selectById(id: Int): ModComida? {
-        val dbReadable = readableDatabase
         val query = "SELECT * FROM ${Database.USR_TABLE_NAME_COMIDA} WHERE ${Database.COL_ID_COMIDA}=$id"
+        val dbReadable = dbHelper.readableDatabase
         val resultado = dbReadable.rawQuery(query, null)
         var comida: ModComida? = null
 

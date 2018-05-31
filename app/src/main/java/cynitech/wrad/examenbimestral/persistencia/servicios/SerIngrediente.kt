@@ -10,17 +10,11 @@ import java.util.*
 
 
 class SerIngrediente(context: Context) {
-    private var dbWriteable: SQLiteDatabase
-    private var dbReadable: SQLiteDatabase
-
-    init {
-        val dbHelper = Database(context)
-        dbWriteable = dbHelper.writableDatabase
-        dbReadable = dbHelper.readableDatabase
-    }
+    private val dbHelper: Database = Database(context)
 
     fun insert(comida: ModComida) {
         var cv = ContentValues()
+        val dbWriteable = dbHelper.writableDatabase
         cv.put(Database.COL_NOMBRE_COMIDA, comida.nombrePlato)
         cv.put(Database.COL_DESCRIPCION_COMIDA, comida.descripcionPlato)
         cv.put(Database.COL_NACIONALIDAD_COMIDA, comida.nacionalidad)
@@ -33,6 +27,7 @@ class SerIngrediente(context: Context) {
 
     fun update(comida: ModComida): Int {
         var cv = ContentValues()
+        val dbWriteable = dbHelper.writableDatabase
         cv.put(Database.COL_NOMBRE_COMIDA, comida.nombrePlato)
         cv.put(Database.COL_DESCRIPCION_COMIDA, comida.descripcionPlato)
         cv.put(Database.COL_NACIONALIDAD_COMIDA, comida.nacionalidad)
@@ -44,6 +39,7 @@ class SerIngrediente(context: Context) {
 
     fun selectAll(): ArrayList<ModComida> {
         val query = "SELECT * FROM ${Database.USR_TABLE_NAME_COMIDA}"
+        val dbReadable = dbHelper.readableDatabase
         val resultado = dbReadable.rawQuery(query, null)
         var datos: ArrayList<ModComida> = ArrayList()
 
@@ -60,18 +56,21 @@ class SerIngrediente(context: Context) {
                 Log.i("database", "Comida: ID=$id Nombre=$nombre Descripcion=$descripcion Nacionalidad=$nacionalidad NumeroDePersonas=$numeroPersonas Picante=$picante")
             } while (resultado.moveToNext())
         }
+
         resultado.close()
         dbReadable.close()
         return datos
     }
 
     fun delete(id: Int): Int {
+        val dbWriteable = dbHelper.writableDatabase
         val count = dbWriteable!!.delete(Database.USR_TABLE_NAME_COMIDA, "${Database.COL_ID_COMIDA}=?", arrayOf(id.toString()))
         return count
     }
 
     fun selectById(id: Int): ModComida? {
         val query = "SELECT * FROM ${Database.USR_TABLE_NAME_COMIDA} WHERE ${Database.COL_ID_COMIDA}=$id"
+        val dbReadable = dbHelper.readableDatabase
         val resultado = dbReadable.rawQuery(query, null)
         var comida: ModComida? = null
 
@@ -90,5 +89,4 @@ class SerIngrediente(context: Context) {
         return comida
     }
 }
-
 
