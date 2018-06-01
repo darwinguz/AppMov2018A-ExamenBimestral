@@ -18,7 +18,7 @@
         </activity>
         <activity android:name=".CrearComidaActivity" />
         <activity android:name=".ListarComidaActivity" />
-        <activity android:name=".IngredienteActivity"></activity>
+        <activity android:name=".IngredientesActivity"></activity>
     </application>
 
 </manifest>

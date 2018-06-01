@@ -10,4 +10,6 @@
     <string name="str_picante">Picante</string>
     <string name="str_cancelar">Cancelar</string>
     <string name="str_ingredientes">Ingredientes</string>
+    <string name="str_nuevo">Nuevo</string>
+    <string name="str_crear_comida">Crear Comida</string>
 </resources>

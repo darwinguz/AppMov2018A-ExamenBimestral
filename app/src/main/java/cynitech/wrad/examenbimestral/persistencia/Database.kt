@@ -31,7 +31,7 @@ class Database(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, DB_V
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
-        val createTableSQL = "CREATE TABLE ${Database.USR_TABLE_NAME_COMIDA} " +
+        var createTableSQL = "CREATE TABLE ${Database.USR_TABLE_NAME_COMIDA} " +
                 "(" +
                 "${Database.COL_ID_COMIDA} INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "${Database.COL_NOMBRE_COMIDA} VARCHAR(50), " +
@@ -39,8 +39,9 @@ class Database(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, DB_V
                 "${Database.COL_NACIONALIDAD_COMIDA} VARCHAR(50), " +
                 "${Database.COL_NUMERO_PERSONAS_COMIDA} INTEGER, " +
                 "${Database.COL_PICANTE_COMIDA} INTEGER" +
-                "); " +
-                "CREATE TABLE ${Database.USR_TABLE_NAME_INGREDIENTE} " +
+                "); "
+        db?.execSQL(createTableSQL)
+        createTableSQL = "CREATE TABLE ${Database.USR_TABLE_NAME_INGREDIENTE} " +
                 "(" +
                 "${Database.COL_ID_INGREDIENTE} INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "${Database.COL_NOMBRE_INGREDIENTE} VARCHAR(50), " +
@@ -56,7 +57,8 @@ class Database(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, DB_V
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        db!!.execSQL("DROP TABLE IF EXISTS " + Database.DB_NAME)
+        db!!.execSQL("DROP TABLE IF EXISTS " + Database.USR_TABLE_NAME_INGREDIENTE)
+        db!!.execSQL("DROP TABLE IF EXISTS " + Database.USR_TABLE_NAME_COMIDA)
     }
 
 }

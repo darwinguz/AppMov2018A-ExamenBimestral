@@ -11,12 +11,12 @@ import android.view.View
 import android.view.ViewGroup
 import cynitech.wrad.examenbimestral.IngredientesActivity
 import cynitech.wrad.examenbimestral.R
-import cynitech.wrad.examenbimestral.modelos.ModComida
+import cynitech.wrad.examenbimestral.modelos.ModIngrediente
 import kotlinx.android.synthetic.main.lista_fila_comida.view.*
 import java.util.*
 
-class AdaComida(private val comidas: ArrayList<ModComida>) :
-        RecyclerView.Adapter<AdaComida.ViewHolder>() {
+class AdaIngrediente(private val ingredientes: ArrayList<ModIngrediente>) :
+        RecyclerView.Adapter<AdaIngrediente.ViewHolder>() {
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -32,7 +32,7 @@ class AdaComida(private val comidas: ArrayList<ModComida>) :
 
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): AdaComida.ViewHolder {
+                                    viewType: Int): AdaIngrediente.ViewHolder {
         // create a new view
         val textView = LayoutInflater.from(parent.context)//root=null para que se ajuste la pantalla
                 .inflate(R.layout.lista_fila_comida, null, false)
@@ -46,23 +46,23 @@ class AdaComida(private val comidas: ArrayList<ModComida>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.nombre.text = comidas[position].nombrePlato
-        holder.descripcion.text = comidas[position].descripcionPlato
-        holder.nacionalidad.text = comidas[position].nacionalidad
+        holder.nombre.text = ingredientes[position].nombreIngrediente
+        holder.descripcion.text = ingredientes[position].descripcionPreparacion
+        holder.nacionalidad.text = ingredientes[position].tipoIngrediente
         holder.btnIngredientes.setOnClickListener(View.OnClickListener { v ->
-            irAActividadIngredientesComida(v.context, comidas[position])
+            irAActividadNuevoIngrediente(v.context, ingredientes[position])
         })
     }
 
-    fun irAActividadIngredientesComida(context: Context, comidaSelected: ModComida) {
+    private fun irAActividadNuevoIngrediente(context: Context, ingredienteSelected: ModIngrediente) {
         val intent = Intent(context, IngredientesActivity::class.java)
-        intent.putExtra("comida-intent", comidaSelected)
-        Log.e("info", "COMIDA ENVIADA: $comidaSelected ")
+        intent.putExtra("ingrediente-intent", ingredienteSelected)
+        Log.i("info", "INGREDIENTE ENVIADA: $ingredienteSelected ")
 
         startActivity(context, intent, null)
     }
 
 
     // Return the size of your dataset (invoked by the layout manager)
-    override fun getItemCount() = comidas.size
+    override fun getItemCount() = ingredientes.size
 }
