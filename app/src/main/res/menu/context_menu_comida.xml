@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/item_context_menu_editar_comida"
+        android:title="@string/str_editar" />
+    <item
+        android:id="@+id/item_context_menu_eliminar_comida"
+        android:title="@string/str_eliminar" />
+    <item
+        android:id="@+id/item_context_menu_compartir_correo_comida"
+        android:title="@string/str_compartir_correo" />
+</menu>

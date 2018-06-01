@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.ContextMenu
+import android.view.View
 import cynitech.wrad.examenbimestral.adapters.AdaComida
 import cynitech.wrad.examenbimestral.persistencia.servicios.SerComida
 
@@ -17,6 +19,7 @@ class ListarComidaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listar_comida)
 
+        //recycler view
         viewManager = LinearLayoutManager(this)
         val dbHandler = SerComida(this)
 //        viewAdapter = AdaComida(Factory.comidas)
@@ -26,13 +29,13 @@ class ListarComidaActivity : AppCompatActivity() {
             // use this setting to improve performance if you know that changes
             // in content do not change the layout size of the RecyclerView
             setHasFixedSize(true)
-
             // use a linear layout manager
             layoutManager = viewManager
-
             // specify an viewAdapter (see also next example)
             adapter = viewAdapter
-
         }
+
     }
+
+
 }
