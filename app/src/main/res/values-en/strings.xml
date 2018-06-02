@@ -12,7 +12,7 @@
     <string name="str_ingredientes">Ingredients</string>
     <string name="str_nuevo">New</string>
     <string name="str_crear_comida">Create Food</string>
-    <string name="str_compartir_correo">Compartir por correo</string>
-    <string name="str_editar">Editar</string>
-    <string name="str_eliminar">Eliminar</string>
+    <string name="str_compartir_correo">Shared by email</string>
+    <string name="str_editar">Edit</string>
+    <string name="str_eliminar">Delete</string>
 </resources>

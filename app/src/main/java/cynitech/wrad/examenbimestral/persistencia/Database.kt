@@ -8,8 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper
 //parametros base de datos SQlite
 class Database(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
     companion object {
-        const val DB_NAME = "db_exam"
-        const val DB_VERSION = 2
+        const val DB_NAME = "db_exam_t"
+        const val DB_VERSION = 4
         //tabla comida
         const val USR_TABLE_NAME_COMIDA = "comida"
         const val COL_ID_COMIDA = "id"
