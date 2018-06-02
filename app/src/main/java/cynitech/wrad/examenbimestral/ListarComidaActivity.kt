@@ -20,7 +20,6 @@ class ListarComidaActivity : AppCompatActivity() {
         //recycler view
         viewManager = LinearLayoutManager(this)
         val dbHandler = SerComida(this)
-//        viewAdapter = AdaComida(Factory.comidas)
         viewAdapter = AdaComida(dbHandler.selectAll())
 
         recyclerView = findViewById<RecyclerView>(R.id.recycler_view_comida).apply {

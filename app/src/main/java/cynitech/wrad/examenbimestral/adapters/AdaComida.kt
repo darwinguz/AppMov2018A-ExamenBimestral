@@ -40,9 +40,9 @@ class AdaComida(private val comidas: ArrayList<ModComida>) :
             //FIXME ARREGLAR EL LLAMADO DEL OBJETO SELECCIONADO EN EL CONTEXT VIEW Y EL REFRESH
             editar.setOnMenuItemClickListener {
                 val serComida = SerComida(view.context)
-                val comidaEliminar = serComida.selectByName(view.lbl_nombre_lista_comida.text.toString())
-                if (comidaEliminar != null) {
-                    irCrearComida(view.context, comidaEliminar)
+                val comidaEditar = serComida.selectByName(view.lbl_nombre_lista_comida.text.toString())
+                if (comidaEditar != null) {
+                    irCrearComida(view.context, comidaEditar)
                 }
                 true
             }
@@ -65,7 +65,26 @@ class AdaComida(private val comidas: ArrayList<ModComida>) :
                 true
             }
 
+            compartirCorreo.setOnMenuItemClickListener {
+                val serComida = SerComida(view.context)
+                val comidaEnviar = serComida.selectByName(view.lbl_nombre_lista_comida.text.toString())
+                if (comidaEnviar != null) {
+                    enviarCorreo(comidaEnviar)
+                }
+                true
+            }
         }
+
+        private fun enviarCorreo(comida: ModComida) {
+            val addressees = arrayOf("direccion@uno.com", "direccion@dos.com")
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.type = "text/html"
+            intent.putExtra(Intent.EXTRA_EMAIL, addressees)
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Comida - Examen Bimestral")
+            intent.putExtra(Intent.EXTRA_TEXT, "Comida:\nNombre=${comida.nombrePlato}\nDescripcion=${comida.descripcionPlato}\nNacionalidad=${comida.nacionalidad}\nNumeroDePersonas=${comida.numeroPersonas}\nPicante=${comida.picante}")
+            startActivity(view.context, intent, null)
+        }
+
 
         private fun irListarComida() {
             val intent = Intent(view.context, ListarComidaActivity::class.java)
