@@ -15,4 +15,9 @@
     <string name="str_compartir_correo">Compartir por correo</string>
     <string name="str_editar">Editar</string>
     <string name="str_eliminar">Eliminar</string>
+    <string name="str_comida">Comida</string>
+    <string name="str_cantidad">Cantidad</string>
+    <string name="str_opcional">Opcional</string>
+    <string name="str_tipo">Tipo</string>
+    <string name="str_necesita_refrigeracion">Necesita Refrigeración</string>
 </resources>

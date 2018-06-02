@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
+import android.view.View
 import cynitech.wrad.examenbimestral.adapters.AdaIngrediente
 import cynitech.wrad.examenbimestral.modelos.ModComida
 import cynitech.wrad.examenbimestral.persistencia.servicios.SerIngrediente
@@ -48,6 +49,10 @@ class IngredientesActivity : AppCompatActivity() {
             adapter = viewAdapter
 
         }
+
+        btn_nuevo_ingrediente.setOnClickListener(View.OnClickListener {
+
+        })
 
     }
 }
