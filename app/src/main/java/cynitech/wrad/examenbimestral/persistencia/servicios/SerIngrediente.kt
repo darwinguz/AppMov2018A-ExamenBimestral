@@ -97,5 +97,32 @@ class SerIngrediente(context: Context) {
         dbReadable.close()
         return ingrediente
     }
+
+    fun selectAllByIdComida(idFk: Int): ArrayList<ModIngrediente> {
+        val query = "SELECT * FROM ${Database.USR_TABLE_NAME_INGREDIENTE} WHERE ${Database.COL_FK_ID_COMIDA_INGREDIENTE}=$idFk"
+        val dbReadable = dbHelper.readableDatabase
+        val resultado = dbReadable.rawQuery(query, null)
+        var datos: ArrayList<ModIngrediente> = ArrayList()
+
+        if (resultado.moveToFirst()) {
+            do {
+                val id = resultado.getInt(0)
+                val nombre = resultado.getString(1)
+                val cantidad = resultado.getInt(2)
+                val descripcionPreparacion = resultado.getString(3)
+                val opcional = resultado.getInt(4)
+                val tipo = resultado.getString(5)
+                val necesitaRefrigeracion = resultado.getInt(6)
+                val comidaId = resultado.getInt(7)
+                val ingrediente = ModIngrediente(id, nombre, cantidad, descripcionPreparacion, opcional == 1, tipo, necesitaRefrigeracion == 1, comidaId)
+                datos.add(ingrediente)
+                Log.i("database", "*****SELECT***** Ingrediente: ID=$id Nombre=$nombre Cantidad=$cantidad DescripcionPreparacion=$descripcionPreparacion Opcional=$opcional Tipo=$tipo NecesitaRefrigeracion=$necesitaRefrigeracion ComidaID=$comidaId")
+            } while (resultado.moveToNext())
+        }
+
+        resultado.close()
+        dbReadable.close()
+        return datos
+    }
 }
 

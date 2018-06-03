@@ -114,18 +114,16 @@
         android:id="@+id/lbl_tipo_crear_ingrediente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="104dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="104dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:text="@string/str_tipo"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/chk_opcional_crear_ingrediente"
+        app:layout_constraintEnd_toEndOf="@+id/lbl_opcional_crear_ingrediente"
         app:layout_constraintHorizontal_bias="0.853"
-        app:layout_constraintStart_toStartOf="@+id/chk_opcional_crear_ingrediente"
-        app:layout_constraintTop_toBottomOf="@+id/chk_opcional_crear_ingrediente" />
+        app:layout_constraintStart_toStartOf="@+id/lbl_opcional_crear_ingrediente"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_opcional_crear_ingrediente" />
 
     <Button
         android:id="@+id/btn_guardar_crear_ingrediente"

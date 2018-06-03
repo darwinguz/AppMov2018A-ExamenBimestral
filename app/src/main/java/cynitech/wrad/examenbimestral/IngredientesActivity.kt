@@ -1,5 +1,6 @@
 package cynitech.wrad.examenbimestral
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -35,7 +36,7 @@ class IngredientesActivity : AppCompatActivity() {
 
         viewManager = LinearLayoutManager(this)
         val dbHandler = SerIngrediente(this)
-        viewAdapter = AdaIngrediente(dbHandler.selectAll())
+        viewAdapter = AdaIngrediente(dbHandler.selectAllByIdComida(comida?.id!!))
 
         recyclerView = findViewById<RecyclerView>(R.id.recycler_view_ingrediente).apply {
             // use this setting to improve performance if you know that changes
@@ -51,8 +52,14 @@ class IngredientesActivity : AppCompatActivity() {
         }
 
         btn_nuevo_ingrediente.setOnClickListener(View.OnClickListener {
-
+            irCrearIngrediente()
         })
 
+    }
+
+    private fun irCrearIngrediente() {
+        val intent = Intent(this, CrearIngredienteActivity::class.java)
+        intent.putExtra("comida-intent", comida)
+        startActivity(intent)
     }
 }
