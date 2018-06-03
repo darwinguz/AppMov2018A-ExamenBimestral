@@ -73,9 +73,10 @@
 
     <TextView
         android:id="@+id/lbl_numero_personas_comida"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="118dp"
+        android:layout_height="38dp"
         android:layout_marginTop="45dp"
+        android:gravity="right|center_vertical"
         android:text="@string/str_numero_personas"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -95,6 +96,7 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/lbl_numero_personas_comida"
+        app:layout_constraintHorizontal_bias="0.84"
         app:layout_constraintStart_toStartOf="@+id/lbl_numero_personas_comida"
         app:layout_constraintTop_toBottomOf="@+id/lbl_numero_personas_comida" />
 

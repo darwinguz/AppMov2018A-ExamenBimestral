@@ -27,7 +27,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="517dp"
+            android:layout_width="244dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical">
@@ -57,11 +57,12 @@
 
         <Button
             android:id="@+id/btn_ingredientes_lista_comida"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/colorButtonBlack"
             android:text="@string/str_ingredientes"
+            android:textSize="12sp"
             tools:layout_editor_absoluteX="248dp"
             tools:layout_editor_absoluteY="40dp" />
     </LinearLayout>
