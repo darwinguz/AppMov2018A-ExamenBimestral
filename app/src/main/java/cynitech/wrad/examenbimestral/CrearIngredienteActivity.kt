@@ -1,13 +1,11 @@
 package cynitech.wrad.examenbimestral
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import android.support.v7.app.AppCompatActivity
 import cynitech.wrad.examenbimestral.modelos.ModComida
 import cynitech.wrad.examenbimestral.modelos.ModIngrediente
 import cynitech.wrad.examenbimestral.persistencia.servicios.SerIngrediente
-import kotlinx.android.synthetic.main.activity_crear_comida.*
 import kotlinx.android.synthetic.main.activity_crear_ingrediente.*
 
 class CrearIngredienteActivity : AppCompatActivity() {

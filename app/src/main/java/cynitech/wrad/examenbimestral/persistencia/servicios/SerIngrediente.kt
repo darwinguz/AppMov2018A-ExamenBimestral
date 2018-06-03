@@ -7,7 +7,7 @@ import cynitech.wrad.examenbimestral.modelos.ModIngrediente
 import cynitech.wrad.examenbimestral.persistencia.Database
 import java.util.*
 
-
+//TODO SINGLETON
 class SerIngrediente(context: Context) {
     private val dbHelper: Database = Database(context)
 

@@ -50,8 +50,8 @@ class AdaComida(private val comidas: ArrayList<ModComida>) :
             //FIXME ARREGLAR EL LLAMADO DEL OBJETO SELECCIONADO EN EL CONTEXT VIEW Y EL REFRESH
             eliminar.setOnMenuItemClickListener {
                 val builder = AlertDialog.Builder(view.context)
-                builder.setMessage("¿Desea eliminar esta comida?")
-                        .setPositiveButton("Confirmar", { _, _ ->
+                builder.setMessage(R.string.str_desea_eliminar_comida)
+                        .setPositiveButton(R.string.str_confirmar, { _, _ ->
                             val serComida = SerComida(view.context)
                             val comidaEliminar = serComida.selectByName(view.lbl_nombre_lista_comida.text.toString())
                             if (comidaEliminar != null) {

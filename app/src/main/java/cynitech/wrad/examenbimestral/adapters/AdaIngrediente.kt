@@ -36,9 +36,9 @@ class AdaIngrediente(private val ingredientes: ArrayList<ModIngrediente>) :
         holder.view.lbl_nombre_lista_ingrediente.text = ingredientes[position].nombreIngrediente
         holder.view.lbl_cantidad_lista_ingrediente.text = ingredientes[position].cantidad.toString()
         holder.view.lbl_descripcion_lista_ingrediente.text = ingredientes[position].descripcionPreparacion
-        holder.view.lbl_opcional_lista_ingrediente.text = if (ingredientes[position].opcional) R.string.str_opcional.toString() else "No ${R.string.str_opcional}"
+        holder.view.lbl_opcional_lista_ingrediente.text = if (ingredientes[position].opcional) R.string.str_opcional.toString() else "No ${holder.view.context.getString(R.string.str_opcional)}"
         holder.view.lbl_tipo_lista_ingrediente.text = ingredientes[position].tipoIngrediente
-        holder.view.lbl_necesita_refrigeracion_lista_ingrediente.text = if (ingredientes[position].necesitaRefrigeracion) R.string.str_necesita_refrigeracion.toString() else "No ${R.string.str_necesita_refrigeracion}"
+        holder.view.lbl_necesita_refrigeracion_lista_ingrediente.text = if (ingredientes[position].necesitaRefrigeracion) holder.view.context.getString(R.string.str_necesita_refrigeracion) else "No ${holder.view.context.getString(R.string.str_necesita_refrigeracion)}"
     }
 
     // Return the size of your dataset (invoked by the layout manager)

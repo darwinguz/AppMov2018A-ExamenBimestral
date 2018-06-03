@@ -8,6 +8,7 @@
     <string name="str_nacionalidad">Nationality</string>
     <string name="str_numero_personas">Number of People</string>
     <string name="str_picante">Spicy</string>
+    <string name="str_confirmar">Confirm</string>
     <string name="str_cancelar">Cancel</string>
     <string name="str_ingredientes">Ingredients</string>
     <string name="str_nuevo">New</string>
@@ -22,4 +23,5 @@
     <string name="str_necesita_refrigeracion">Needs Refrigeration</string>
     <string name="str_si">Yes</string>
     <string name="str_crear_ingrediente">Create Ingredient</string>
+    <string name="str_desea_eliminar_comida">Do you want to delete this food?</string>
 </resources>

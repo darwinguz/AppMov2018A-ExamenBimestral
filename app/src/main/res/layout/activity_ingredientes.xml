@@ -102,7 +102,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:text="Si"
+        android:text="@string/str_si"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/lbl_picante_ingrediente"
         app:layout_constraintStart_toEndOf="@+id/lbl_picante_ingrediente"

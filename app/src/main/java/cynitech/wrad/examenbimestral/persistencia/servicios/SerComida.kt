@@ -7,6 +7,7 @@ import cynitech.wrad.examenbimestral.modelos.ModComida
 import cynitech.wrad.examenbimestral.persistencia.Database
 import java.util.*
 
+//TODO SINGLETON
 class SerComida(context: Context) {
     private val dbHelper: Database = Database(context)
 
