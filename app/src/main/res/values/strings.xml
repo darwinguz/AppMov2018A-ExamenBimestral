@@ -20,4 +20,6 @@
     <string name="str_opcional">Opcional</string>
     <string name="str_tipo">Tipo</string>
     <string name="str_necesita_refrigeracion">Necesita Refrigeración</string>
+    <string name="str_si">Si</string>
+    <string name="str_crear_ingrediente">Crear Ingrediente</string>
 </resources>
