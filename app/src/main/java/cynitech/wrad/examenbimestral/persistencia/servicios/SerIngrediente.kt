@@ -124,5 +124,28 @@ class SerIngrediente(context: Context) {
         dbReadable.close()
         return datos
     }
+
+    fun selectByName(name: String): ModIngrediente? {
+        val query = "SELECT * FROM ${Database.USR_TABLE_NAME_INGREDIENTE} WHERE ${Database.COL_NOMBRE_INGREDIENTE}='$name'"
+        val dbReadable = dbHelper.readableDatabase
+        val resultado = dbReadable.rawQuery(query, null)
+        var ingrediente: ModIngrediente? = null
+
+        if (resultado.moveToFirst()) {
+            val id = resultado.getInt(0)
+            val nombre = resultado.getString(1)
+            val cantidad = resultado.getInt(2)
+            val descripcionPreparacion = resultado.getString(3)
+            val opcional = resultado.getInt(4)
+            val tipo = resultado.getString(5)
+            val necesitaRefrigeracion = resultado.getInt(6)
+            val comidaId = resultado.getInt(7)
+            ingrediente = ModIngrediente(id, nombre, cantidad, descripcionPreparacion, opcional == 1, tipo, necesitaRefrigeracion == 1, comidaId)
+            Log.i("database", "*****SELECTBYNAME***** Ingrediente: ID=$id Nombre=$nombre Cantidad=$cantidad DescripcionPreparacion=$descripcionPreparacion Opcional=$opcional Tipo=$tipo NecesitaRefrigeracion=$necesitaRefrigeracion ComidaID=$comidaId")
+        }
+        resultado.close()
+        dbReadable.close()
+        return ingrediente
+    }
 }
 

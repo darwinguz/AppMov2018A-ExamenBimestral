@@ -27,7 +27,6 @@ class CrearComidaActivity : AppCompatActivity() {
             chk_picante_comida.isChecked = comidaEdit?.picante!!
         }
 
-
         btn_guardar_comida.setOnClickListener(View.OnClickListener {
             guardarComida()
             irListarComida()

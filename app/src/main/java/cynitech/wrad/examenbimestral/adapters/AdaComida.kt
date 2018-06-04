@@ -16,6 +16,7 @@ import cynitech.wrad.examenbimestral.ListarComidaActivity
 import cynitech.wrad.examenbimestral.R
 import cynitech.wrad.examenbimestral.modelos.ModComida
 import cynitech.wrad.examenbimestral.persistencia.servicios.SerComida
+import kotlinx.android.synthetic.main.activity_listar_comida.view.*
 import kotlinx.android.synthetic.main.lista_fila_comida.view.*
 import java.util.*
 
@@ -56,6 +57,7 @@ class AdaComida(private val comidas: ArrayList<ModComida>) :
                             val comidaEliminar = serComida.selectByName(view.lbl_nombre_lista_comida.text.toString())
                             if (comidaEliminar != null) {
                                 serComida.delete(comidaEliminar.id!!)
+                                //TODO refrescamiento view.recycler_view_comida.adapter.notifyDataSetChanged() https://stackoverflow.com/questions/31367599/how-to-update-recyclerview-adapter-data
                             }
                             irListarComida()
                         })
